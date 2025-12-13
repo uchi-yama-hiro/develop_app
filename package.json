@@ -1,0 +1,16 @@
+{
+  "name": "meigen-widget-mock",
+  "version": "1.0.0",
+  "description": "名言ウィジェットのHTML/CSSモック",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -c-1 -o",
+    "test": "echo \"No tests\""
+  },
+  "keywords": ["meigen","widget","mock"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^39.2.7"
+  }
+}

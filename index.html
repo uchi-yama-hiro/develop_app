@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>名言ウィジェット（モック）</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="widget" role="region" aria-label="今日の名言ウィジェット">
+        <header class="widget__header">
+          <h1>今日の名言</h1>
+          <time class="widget__date">2025年12月13日</time>
+        </header>
+
+        <blockquote class="widget__quote">
+          "成功する秘訣は、諦めないことだけだ。"
+          <cite class="widget__author">— 山田 太郎</cite>
+        </blockquote>
+
+        <footer class="widget__footer">
+          <button class="btn btn--secondary" aria-label="前の名言">‹</button>
+          <button class="btn btn--primary" aria-label="次の名言">›</button>
+        </footer>
+
+        <!-- 開発用: あらかじめ用意した名言例（将来JSで利用できます） -->
+        <ul class="quotes" hidden>
+          <li>小さなことを続けることが、大きな力になる。 — 佐藤 花子</li>
+          <li>今日という日は、残りの人生の最初の日だ。 — 不明</li>
+          <li>学ぶことをやめた人は、成長をやめた人だ。 — 鈴木 一郎</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
