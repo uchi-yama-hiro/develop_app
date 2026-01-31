@@ -1,0 +1,19 @@
+services:
+  vite:
+    build:
+      context: ../app
+      dockerfile: ../Docker/Dockerfile
+    container_name: vite-dev
+    ports:
+      - "5173:5173"
+    volumes:
+      # ソースコードをマウント
+      - ../app:/workspace
+      # node_modules をホストから分離（匿名ボリューム）
+      - /workspace/node_modules
+    environment:
+      # ホットリロードが不安定な場合は以下を有効化
+      # - CHOKIDAR_USEPOLLING=1
+      - NODE_ENV=development
+    stdin_open: true
+    tty: true
