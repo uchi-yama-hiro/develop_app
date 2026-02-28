@@ -50,32 +50,33 @@
 
 ### 2.1 機能要件 (Functional Requirements)
 
-| ID     | 要件                                                                               | 優先度 | ステータス |
-| ------ | ---------------------------------------------------------------------------------- | ------ | ---------- |
-| FR-001 | 企業名（銘柄）の登録・編集・削除ができる（最大30社）                               | Must   | TODO       |
-| FR-002 | 登録企業一覧を保存ディレクトリ内の設定ファイルに永続化する                         | Must   | TODO       |
-| FR-003 | ユーザがボタン操作で選択した企業のニュース記事スクレイピングを実行できる           | Must   | TODO       |
-| FR-004 | Google Newsからニュース記事を取得できる                                            | Must   | TODO       |
-| FR-005 | Yahoo!ファイナンスからニュース記事を取得できる                                     | Must   | TODO       |
-| FR-006 | 日経電子版からニュース記事を取得できる                                             | Must   | TODO       |
-| FR-007 | Yahoo!ニュースからニュース記事を取得できる                                         | Must   | TODO       |
-| FR-008 | スクレイピング結果をHTMLファイル（記事本文）としてユーザ指定ディレクトリに保存する | Must   | TODO       |
-| FR-009 | ユーザが保存先ディレクトリを選択・変更できる                                       | Must   | TODO       |
-| FR-010 | 収集済み記事の一覧を日付順で表示できる                                             | Must   | TODO       |
-| FR-011 | 全登録企業を対象に一括スクレイピングを実行できる                                   | Should | TODO       |
-| FR-012 | スクレイピングの進捗状況をUIに表示する（処理中/完了/エラー）                       | Should | TODO       |
-| FR-013 | 重複記事の検出・スキップを行う                                                     | Should | TODO       |
+| ID     | 要件                                                                                                                                             | 優先度 | ステータス |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------ | ---------- |
+| FR-001 | 企業名（銘柄）の登録・編集・削除ができる（最大30社）                                                                                             | Must   | TODO       |
+| FR-002 | 登録企業一覧を保存ディレクトリ内の設定ファイルに永続化する                                                                                       | Must   | TODO       |
+| FR-003 | ユーザがボタン操作で選択した企業のニュース記事スクレイピングを実行できる                                                                         | Must   | TODO       |
+| FR-004 | Google Newsからニュース記事を取得できる                                                                                                          | Must   | TODO       |
+| FR-005 | Yahoo!ファイナンスからニュース記事を取得できる                                                                                                   | Must   | TODO       |
+| FR-006 | 日経電子版からニュース記事を取得できる                                                                                                           | Must   | TODO       |
+| FR-007 | Yahoo!ニュースからニュース記事を取得できる                                                                                                       | Must   | TODO       |
+| FR-008 | スクレイピング結果をHTMLファイル（記事本文）としてユーザ指定ディレクトリに保存する                                                               | Must   | TODO       |
+| FR-009 | ユーザが保存先ディレクトリを選択・変更できる                                                                                                     | Must   | TODO       |
+| FR-010 | 収集済み記事の一覧を日付順で表示できる                                                                                                           | Must   | TODO       |
+| FR-011 | 全登録企業を対象に一括スクレイピングを実行できる                                                                                                 | Should | TODO       |
+| FR-012 | スクレイピングの進捗状況をUIに表示する（処理中/完了/エラー）                                                                                     | Should | TODO       |
+| FR-013 | 重複記事の検出・スキップを行う                                                                                                                   | Should | TODO       |
+| FR-014 | 「当日ニュースのみ」モードを選択できる。有効時は検索結果から当日公開の記事のみを収集し、記事本文HTML取得をスキップする（検索結果ページのみ保存） | Must   | TODO       |
 
 ### 2.2 非機能要件 (Non-Functional Requirements)
 
-| ID      | 要件                                                                           | カテゴリ               | ステータス |
-| ------- | ------------------------------------------------------------------------------ | ---------------------- | ---------- |
-| NFR-001 | 30社分のスクレイピングを妥当な時間内（目安5分以内）に完了する                  | パフォーマンス         | TODO       |
-| NFR-002 | スクレイピング対象サイトへ過度なリクエストを送らない（リクエスト間隔を設ける） | 倫理・コンプライアンス | TODO       |
-| NFR-003 | 対象サイトのrobots.txtを尊重する                                               | 倫理・コンプライアンス | TODO       |
-| NFR-004 | 直感的に操作可能なUI（マニュアル不要で利用できるレベル）                       | ユーザビリティ         | TODO       |
-| NFR-005 | 保存先ディレクトリ以外のファイルシステムにアクセスしない                       | セキュリティ           | TODO       |
-| NFR-006 | スクレイピング失敗時にアプリがクラッシュしない（エラーをハンドリングし継続）   | 信頼性                 | TODO       |
+| ID      | 要件                                                                                                                                                             | カテゴリ               | ステータス |
+| ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ---------- |
+| NFR-001 | 30社分のスクレイピングを妥当な時間内（目安15分以内）に完了する。サイト間は並行実行し、同一サイト内は2秒間隔を遵守する。記事本文の取得は検索結果上位5件に限定する | パフォーマンス         | TODO       |
+| NFR-002 | 同一サイトへのリクエスト間隔を最低2秒確保する。異なるサイトへは並行リクエスト可（最大4並行）                                                                     | 倫理・コンプライアンス | TODO       |
+| NFR-003 | 対象サイトのrobots.txtを尊重する                                                                                                                                 | 倫理・コンプライアンス | TODO       |
+| NFR-004 | 直感的に操作可能なUI（マニュアル不要で利用できるレベル）                                                                                                         | ユーザビリティ         | TODO       |
+| NFR-005 | 保存先ディレクトリ以外のファイルシステムにアクセスしない                                                                                                         | セキュリティ           | TODO       |
+| NFR-006 | スクレイピング失敗時にアプリがクラッシュしない（エラーをハンドリングし継続）                                                                                     | 信頼性                 | TODO       |
 
 ### 2.3 制約事項
 
@@ -86,6 +87,7 @@
 - **登録企業数上限:** 最大30社
 - **データ保存:** ユーザが指定したローカルディレクトリにHTMLファイルとして保存（DB不使用）
 - **利用形態:** 個人利用（ローカル環境で起動）
+- **利用規約:** スクレイピング対象サイトの利用規約は未確認。動作確認時は「当日ニュースのみモード」（FR-014）を使用し、リクエスト数を最小限に押さえること
 
 ---
 
@@ -191,7 +193,8 @@ graph LR
         ├── routes/           # API ルート定義
         │   ├── companies.ts  # /api/companies
         │   ├── scrape.ts     # /api/scrape
-        │   └── articles.ts   # /api/articles
+        │   ├── articles.ts   # /api/articles
+        │   └── config.ts     # /api/config
         ├── scrapers/         # サイト別スクレイパー
         │   ├── BaseScraper.ts
         │   ├── GoogleNewsScraper.ts
@@ -227,7 +230,8 @@ graph LR
 | ------------------- | ---------------------------------------------------------- | ------------------------------------- |
 | CompaniesRoute      | /api/companies のルーティングとリクエスト処理              | ConfigManager                         |
 | ScrapeRoute         | /api/scrape のルーティングとリクエスト処理                 | ScraperManager                        |
-| ArticlesRoute       | /api/articles のルーティングとリクエスト処理               | FileService                           |
+| ArticlesRoute       | /api/articles のルーティングとリクエスト処理               | ConfigManager                         |
+| ConfigRoute         | /api/config のルーティングとリクエスト処理                 | ConfigManager                         |
 | ScraperManager      | スクレイピング全体の制御（対象サイト振り分け・並行制御）   | BaseScraper, FileService, RateLimiter |
 | BaseScraper         | スクレイパーの共通インターフェースと基本処理を定義（抽象） | axios, cheerio                        |
 | GoogleNewsScraper   | Google News のページ構造に特化した記事抽出                 | BaseScraper                           |
@@ -270,12 +274,20 @@ classDiagram
         +filePath: string
     }
 
+    class ScrapedArticle {
+        +title: string
+        +url: string
+        +source: ScrapingSource
+        +publishedAt: string
+        +htmlContent: string
+    }
+
     class ScrapingSource {
         <<enumeration>>
-        GOOGLE_NEWS
-        YAHOO_FINANCE
-        NIKKEI
-        YAHOO_NEWS
+        google_news
+        yahoo_finance
+        nikkei
+        yahoo_news
     }
 
     %% === Server: Scrapers ===
@@ -283,26 +295,27 @@ classDiagram
         <<abstract>>
         #source: ScrapingSource
         #rateLimiter: RateLimiter
-        +scrape(companyName: string): Promise~Article[]~
+        +scrape(companyName: string): Promise~ScrapedArticle[]~
         #fetchPage(url: string): Promise~string~
-        #parseArticles(html: string, companyName: string)*: Article[]
+        #parseArticleLinks(html: string, companyName: string)*: ArticleLink[]
+        #fetchArticleContent(url: string): Promise~string~
         #buildSearchUrl(companyName: string)*: string
     }
 
     class GoogleNewsScraper {
-        #parseArticles(html, companyName): Article[]
+        #parseArticleLinks(html, companyName): ArticleLink[]
         #buildSearchUrl(companyName): string
     }
     class YahooFinanceScraper {
-        #parseArticles(html, companyName): Article[]
+        #parseArticleLinks(html, companyName): ArticleLink[]
         #buildSearchUrl(companyName): string
     }
     class NikkeiScraper {
-        #parseArticles(html, companyName): Article[]
+        #parseArticleLinks(html, companyName): ArticleLink[]
         #buildSearchUrl(companyName): string
     }
     class YahooNewsScraper {
-        #parseArticles(html, companyName): Article[]
+        #parseArticleLinks(html, companyName): ArticleLink[]
         #buildSearchUrl(companyName): string
     }
 
@@ -315,9 +328,10 @@ classDiagram
     class ScraperManager {
         -scrapers: BaseScraper[]
         -fileService: FileService
-        -rateLimiter: RateLimiter
+        -configManager: ConfigManager
         +scrapeCompany(company: Company, sources: ScrapingSource[]): Promise~ScrapeResult~
         +scrapeAll(companies: Company[]): Promise~ScrapeResult[]~
+        -saveArticles(company: Company, scraped: ScrapedArticle[]): Promise~Article[]~
     }
 
     class ConfigManager {
@@ -361,10 +375,12 @@ classDiagram
 
     %% === Relationships ===
     ScraperManager --> BaseScraper : uses
-    ScraperManager --> FileService : uses
-    ScraperManager --> RateLimiter : uses
+    ScraperManager --> FileService : saves HTML via
+    ScraperManager --> ConfigManager : saves metadata via
     ConfigManager --> FileService : uses
     BaseScraper --> RateLimiter : uses
+    BaseScraper ..> ScrapedArticle : produces
+    ScraperManager ..> Article : creates from ScrapedArticle
     Article --> ScrapingSource : has
     Article --> Company : belongs to
 ```
@@ -398,22 +414,37 @@ sequenceDiagram
         RL-->>Scraper: OK (間隔経過)
         Scraper->>Site: HTTP GET (検索URL)
         Site-->>Scraper: HTML レスポンス
-        Scraper->>Scraper: parseArticles(html)
+        Scraper->>Scraper: parseArticleLinks(html)
 
-        loop 各記事URL
-            Scraper->>RL: wait()
-            RL-->>Scraper: OK
-            Scraper->>Site: HTTP GET (記事URL)
-            Site-->>Scraper: 記事 HTML
+        alt fullモード
+            loop 各記事URL（上位5件）
+                Scraper->>RL: wait()
+                RL-->>Scraper: OK
+                Scraper->>Site: HTTP GET (記事URL)
+                Site-->>Scraper: 記事 HTML
+                Scraper->>Scraper: ScrapedArticle に htmlContent を格納
+            end
+        else today_onlyモード
+            Scraper->>Scraper: 当日公開の記事のみフィルター（htmlContent は undefined）
         end
 
-        Scraper-->>Mgr: Article[]
+        Scraper-->>Mgr: ScrapedArticle[]
     end
 
-    Mgr->>FS: saveHtml(dir, filename, content)
-    FS->>Disk: ファイル書き込み
-    Disk-->>FS: 完了
-    FS-->>Mgr: filePath
+    loop 各 ScrapedArticle
+        Mgr->>Mgr: 重複チェック (URL で判定)
+        alt fullモード（htmlContent あり）
+            Mgr->>FS: saveHtml(dir, filename, scrapedArticle.htmlContent)
+            FS->>Disk: ファイル書き込み
+            Disk-->>FS: 完了
+            FS-->>Mgr: filePath
+            Mgr->>Mgr: Article メタデータを生成 (filePath を付与)
+        else today_onlyモード（htmlContent なし）
+            Mgr->>Mgr: Article メタデータを生成 (filePath = "")
+        end
+    end
+    Mgr->>Cfg: addArticles(newArticles)
+    Cfg->>FS: config.json に記事メタデータを追記
     Mgr-->>Route: ScrapeResult
     Route-->>API: 200 OK { result }
     API-->>UI: ScrapeResult
@@ -464,6 +495,15 @@ sequenceDiagram
 /** スクレイピング対象サイト */
 type ScrapingSource = "google_news" | "yahoo_finance" | "nikkei" | "yahoo_news";
 
+/**
+ * スクレイピングモード
+ * - 'full':      検索結果上位5件の記事本文HTMLを取得・保存（通常モード）
+ * - 'today_only': 検索結果ページのみ取得し、当日公開の記事メタデータのみ保存。
+ *                記事本文HTMLは取得しない（リクエスト最小化）。
+ *                利用規約未確認時の動作確認用。
+ */
+type ScrapeMode = "full" | "today_only";
+
 /** 企業情報 */
 interface Company {
   id: string; // UUID v4
@@ -471,7 +511,7 @@ interface Company {
   createdAt: string; // ISO 8601 (例: "2026-02-28T10:30:00Z")
 }
 
-/** 収集記事 */
+/** 収集記事（メタデータ。保存後に生成） */
 interface Article {
   id: string; // UUID v4
   companyId: string; // 対応する Company.id
@@ -480,7 +520,17 @@ interface Article {
   source: ScrapingSource; // 取得元サイト
   publishedAt: string; // 記事公開日 ISO 8601（取得できない場合はスクレイピング日）
   scrapedAt: string; // スクレイピング実行日時 ISO 8601
-  filePath: string; // 保存先HTMLファイルの相対パス
+  filePath: string; // 保存先HTMLファイルの相対パス（today_onlyモードでは空文字列）
+  missing?: boolean; // true: filePath のファイルが実在しない（outputDir 変更後の旧記事等）
+}
+
+/** スクレイパーが返す中間データ（本文HTML含む） */
+interface ScrapedArticle {
+  title: string; // 記事タイトル
+  url: string; // 記事元URL
+  source: ScrapingSource; // 取得元サイト
+  publishedAt: string; // 記事公開日 ISO 8601
+  htmlContent?: string; // 記事本文HTML（fullモード時のみ。today_onlyモードでは undefined）
 }
 
 /** スクレイピング実行結果 */
@@ -500,21 +550,42 @@ interface ScrapeError {
   statusCode?: number;
 }
 
-/** アプリケーション設定 */
+/**
+ * アプリケーション設定
+ * config.json はプロジェクトルートに配置（outputDir とは独立）。
+ * outputDir は記事HTML の保存先ディレクトリを指す。
+ */
 interface AppConfig {
-  outputDir: string; // 保存先ディレクトリの絶対パス
+  outputDir: string; // 記事保存先ディレクトリの絶対パス
+  scrapeMode: ScrapeMode; // スクレイピングモード (デフォルト: 'today_only')
   companies: Company[]; // 登録企業一覧
   articles: Article[]; // 収集済み記事メタデータ
 }
+
+/**
+ * outputDir 変更時の移行仕様:
+ * 1. 新しい outputDir のディレクトリ存在・書き込み権限を検証する
+ * 2. config.json 内の outputDir 値を新パスに更新する
+ * 3. 既存の articles/ ディレクトリは旧パスにそのまま残す（移動しない）
+ * 4. articles[] 内の filePath は相対パスのため変更不要
+ * 5. 旧パスの記事を新パスに移動したい場合はユーザが手動で行う
+ * 6. 変更後の新規スクレイピングは新 outputDir に保存される
+ * 注意: 旧 outputDir に保存された記事の filePath は
+ *       config.json 内に残るが、実ファイルは旧ディレクトリを参照する。
+ *       記事一覧APIは filePath の存在チェックを行い、
+ *       ファイルが見つからない記事には missing フラグを付与する。
+ */
 ```
 
 #### 5.1.2 永続化ファイル構造
 
-データはすべてユーザ指定の出力ディレクトリにファイルとして保存する。
+設定ファイル (`config.json`) はサーバー起動ディレクトリ（プロジェクトルート）に配置する。記事HTMLはユーザ指定の `outputDir` に保存する。これにより `outputDir` の変更が `config.json` 自体の移動を伴わない。
 
 ```
-{outputDir}/
-├── config.json                           # AppConfig をJSONで保存
+{projectRoot}/
+├── config.json                           # AppConfig をJSONで保存（outputDir とは独立）
+│
+{outputDir}/                              # ユーザ指定の保存先ディレクトリ
 └── articles/
     ├── {companyId}/
     │   ├── {articleId}.html              # 記事本文HTML
@@ -583,12 +654,12 @@ Vanilla TS のため、フレームワークの状態管理は使用しない。
 
 サーバーはステートレス。すべての永続データは `config.json` で管理し、リクエストごとにファイルから読み込む。
 
-| データ           | 保存先                       | 読み込みタイミング           |
-| ---------------- | ---------------------------- | ---------------------------- |
-| 企業一覧         | config.json の companies     | API リクエスト時             |
-| 記事メタデータ   | config.json の articles      | API リクエスト時             |
-| 出力ディレクトリ | config.json の outputDir     | サーバー起動時 + API時       |
-| 記事HTML         | articles/{companyId}/\*.html | 参照不要（ファイル保存のみ） |
+| データ           | 保存先                                   | 読み込みタイミング           |
+| ---------------- | ---------------------------------------- | ---------------------------- |
+| 企業一覧         | {projectRoot}/config.json の companies   | API リクエスト時             |
+| 記事メタデータ   | {projectRoot}/config.json の articles    | API リクエスト時             |
+| 出力ディレクトリ | {projectRoot}/config.json の outputDir   | サーバー起動時 + API時       |
+| 記事HTML         | {outputDir}/articles/{companyId}/\*.html | 参照不要（ファイル保存のみ） |
 
 ---
 
@@ -609,10 +680,12 @@ Vanilla TS のため、フレームワークの状態管理は使用しない。
 
 #### スクレイピング API
 
-| メソッド | エンドポイント  | 説明                     | リクエスト            | レスポンス     |
-| -------- | --------------- | ------------------------ | --------------------- | -------------- |
-| POST     | /api/scrape     | 単一企業スクレイピング   | { companyId: string } | ScrapeResult   |
-| POST     | /api/scrape/all | 全企業一括スクレイピング | —                     | ScrapeResult[] |
+| メソッド | エンドポイント  | 説明                     | リクエスト                               | レスポンス     |
+| -------- | --------------- | ------------------------ | ---------------------------------------- | -------------- |
+| POST     | /api/scrape     | 単一企業スクレイピング   | { companyId: string, mode?: ScrapeMode } | ScrapeResult   |
+| POST     | /api/scrape/all | 全企業一括スクレイピング | { mode?: ScrapeMode }                    | ScrapeResult[] |
+
+> `mode` 省略時は config.json の `scrapeMode` 設定値を使用（デフォルト: `today_only`）
 
 #### 記事 API
 
@@ -692,10 +765,71 @@ Response (200 OK):
       "source": "google_news",
       "publishedAt": "2026-02-27T09:00:00Z",
       "scrapedAt": "2026-02-28T10:30:00Z",
-      "filePath": "articles/550e8400-.../7c9e6679-....html"
+      "filePath": "articles/550e8400-.../7c9e6679-....html",
+      "missing": false
     }
   ]
   ※ publishedAt の降順（新しい記事が先頭）
+  ※ missing: filePath のファイルが存在しない場合 true（outputDir 変更後等）
+  ※ filePath が空文字列の記事（today_only モード取得分）は missing を付与しない
+  ※ missing: filePath のファイルが存在しない場合 true（outputDir 変更後等）
+  ※ filePath が空文字列の記事（today_only モード取得分）は missing を付与しない
+```
+
+**GET /api/config — 現在の設定を取得**
+
+```
+Request:
+  GET /api/config
+
+Response (200 OK):
+  {
+    "outputDir": "/home/user/stock-news",
+    "scrapeMode": "today_only"
+  }
+```
+
+**PUT /api/config/output-dir — 保存先ディレクトリ変更**
+
+```
+Request:
+  Content-Type: application/json
+  Body: { "outputDir": "/home/user/new-output" }
+
+Response (200 OK):
+  {
+    "outputDir": "/home/user/new-output"
+  }
+  ※ 既存の articles/ は旧ディレクトリに残る（自動移動しない）
+  ※ 旧パスの記事は missing: true として記事一覧APIに反映される
+
+Error (400 Bad Request): パスが空
+  { "error": "outputDir is required" }
+
+Error (400 Bad Request): パスが相対パス
+  { "error": "outputDir must be an absolute path" }
+
+Error (404 Not Found): 指定ディレクトリが存在しない
+  { "error": "Directory does not exist: /home/user/nonexistent" }
+
+Error (403 Forbidden): 書き込み権限がない
+  { "error": "No write permission for directory: /home/user/readonly" }
+```
+
+**PUT /api/config/scrape-mode — スクレイピングモード変更**
+
+```
+Request:
+  Content-Type: application/json
+  Body: { "mode": "full" }
+
+Response (200 OK):
+  {
+    "scrapeMode": "full"
+  }
+
+Error (400 Bad Request): 不正なモード値
+  { "error": "Invalid mode. Allowed values: full, today_only" }
 ```
 
 ### 6.2 サーバー内部インターフェース
@@ -706,7 +840,7 @@ Response (200 OK):
 /** スクレイパー基底インターフェース */
 interface IScraper {
   readonly source: ScrapingSource;
-  scrape(companyName: string): Promise<Article[]>;
+  scrape(companyName: string): Promise<ScrapedArticle[]>;
 }
 
 /** スクレイパー管理 */
@@ -762,9 +896,33 @@ interface IRateLimiter {
 
 - User-Agent: アプリ名とバージョンを含めた文字列を設定する (`StockNewsScraper/0.1.0`)
 - リクエスト間隔: 同一サイトへは最低 **2秒** の間隔を設ける (NFR-002)
+- サイト間並行: 異なるサイトへは **最大4並行** でリクエスト可能 (NFR-001)
 - タイムアウト: 1リクエストあたり **10秒** でタイムアウト
 - リトライ: タイムアウト時は **1回** リトライ（3秒待機後）
 - robots.txt: 初回アクセス時に確認し、Disallow パスには従う (NFR-003)
+
+**モード別動作:**
+
+| 項目                 | `full` モード                     | `today_only` モード                   |
+| -------------------- | --------------------------------- | ------------------------------------- |
+| 検索結果ページ取得   | ✅ 取得                           | ✅ 取得                               |
+| 記事本文HTML取得     | ✅ 上位5件                        | ❌ スキップ（リクエスト最小化）       |
+| 対象記事のフィルター | なし（上位5件すべて）             | 当日公開の記事のみ                    |
+| 保存内容             | 記事本文HTMLファイル              | メタデータのみ（filePath は空文字列） |
+| リクエスト数/企業    | 検索ページ4回 + 記事本斒20回 = 24 | 検索ページ4回のみ = 4                 |
+| 用途                 | 本番運用（利用規約確認後）        | 動作確認・利用規約未確認時            |
+
+**パフォーマンス見積もり (NFR-001):**
+
+```
+1企業あたり:
+  検索ページ取得: 4サイト並行 × 1リクエスト = ~2秒 (並行実行)
+  記事本文取得:   4サイト並行 × 5件 × 2秒間隔 = ~10秒 (サイト内直列)
+  合計: ~12秒/企業
+
+30企業: 30 × 12秒 = ~360秒 (6分)
+※ サイト間並行により実測は ~10〜15分を想定
+```
 
 ---
 
@@ -848,6 +1006,9 @@ graph TB
 │  │  ☑ 任天堂                              │                    │
 │  └──────────────────────────────────────┘                    │
 │                                                            │
+│  モード: (◉) 当日ニュースのみ   ( ) フル取得                    │
+│         ⚠ 利用規約未確認のため「当日ニュースのみ」推奨           │
+│                                                            │
 │  ┌──────────────────┐  ┌──────────────────────┐              │
 │  │  選択企業を取得    │  │  全企業を一括取得      │              │
 │  └──────────────────┘  └──────────────────────┘              │
@@ -917,6 +1078,12 @@ graph TB
 │  ┌──────────────────────────┐  ┌───┐  │
 │  │  /home/user/scraping-data  │  │ 参照│  │
 │  └──────────────────────────┘  └───┘  │
+│                                      │
+│  スクレイピングモード                    │
+│  (◉) 当日ニュースのみ (推奨)            │
+│  ( ) フル取得                            │
+│  ⚠ 利用規約未確認のため               │
+│    「当日ニュースのみ」を推奨します  │
 │                                      │
 │              ┌────────────┐          │
 │              │   保存     │          │
@@ -1180,6 +1347,9 @@ UIコンポーネント:
 
 ## 変更履歴 (Changelog)
 
-| 日付       | バージョン | 変更内容                 | 変更者 |
-| ---------- | ---------- | ------------------------ | ------ |
-| 2026-02-28 | 0.0.0      | 初版作成（テンプレート） | —      |
+| 日付       | バージョン | 変更内容                                                                                     | 変更者 |
+| ---------- | ---------- | -------------------------------------------------------------------------------------------- | ------ |
+| 2026-02-28 | 0.1.0      | レビュー指摘反映②: Article型にmissingフラグ追加・シーケンス図モード分岐・設定API詳細仕様追加 | —      |
+| 2026-02-28 | 0.1.0      | FR-014「当日ニュースのみモード」追加、ScrapeMode型・API・UI・通信仕様を反映                  | —      |
+| 2026-02-28 | 0.1.0      | レビュー指摘反映: ScrapedArticle導入・ScrapingSource統一・config.json配置修正・NFR-001見直し | —      |
+| 2026-02-28 | 0.1.0      | 初版作成（全セクション記載）                                                                 | —      |

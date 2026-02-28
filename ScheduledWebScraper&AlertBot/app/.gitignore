@@ -22,3 +22,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# App data
+config.json
+config.json.bak
+
+# TypeScript build info
+*.tsbuildinfo
+
+# TSC emitted declaration-only JS (from emitDeclarationOnly)
+client/vite.config.js
+server/vitest.config.js

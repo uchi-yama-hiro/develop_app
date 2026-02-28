@@ -1,15 +1,20 @@
 {
-  "name": "app",
+  "name": "stock-news-scraper",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "dev:client": "cd client && npx vite",
+    "dev:server": "cd server && npx tsx watch src/index.ts",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "build:client": "cd client && npx vite build",
+    "build:server": "cd server && npx tsc",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "devDependencies": {
+    "concurrently": "^9.1.2",
     "typescript": "~5.9.3",
-    "vite": "^7.2.4"
+    "vitest": "^3.0.0"
   }
 }
